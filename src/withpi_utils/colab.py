@@ -5,6 +5,11 @@ from withpi.types import Scorer
 def display_scorer(scorer: Scorer):
     """display_scorer pretty-prints a scoring system in Colab using HTML"""
     html_content = "<div style='font-family: Arial, sans-serif;'>"
+    html_content += f"<h2 style='color: #202124; border-bottom: 2px solid #4285F4; padding-bottom: 8px; margin-bottom: 10px;'>Scorer: {scorer.name}</h2>"
+    description = scorer.description
+    if description is not None:
+        description = description.replace("\n", "<br>")
+    html_content += f"<p style='margin-top: 0; margin-bottom: 20px; color: #5F6368;'>{description}</p>"
 
     if scorer.dimensions is None:
         html_content += """
