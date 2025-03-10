@@ -24,7 +24,9 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+    "withpi>=1.16.0",
+]
 
 [project.urls]
 Documentation = "https://github.com/withpi/python-utils#readme"
