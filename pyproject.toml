@@ -8,7 +8,7 @@ dynamic = ["version"]
 description = ''
 readme = "README.md"
 requires-python = ">=3.8"
-license = "Apache 2.0"
+license = "Apache-2.0"
 keywords = []
 authors = [
   { name = "Zach Clifford", email = "zach@withpi.ai" },
@@ -33,29 +33,3 @@ Source = "https://github.com/withpi/python-utils"
 
 [tool.hatch.version]
 path = "src/withpi_utils/__about__.py"
-
-[tool.hatch.envs.types]
-extra-dependencies = [
-  "mypy>=1.0.0",
-]
-[tool.hatch.envs.types.scripts]
-check = "mypy --install-types --non-interactive {args:src/withpi_utils tests}"
-
-[tool.coverage.run]
-source_pkgs = ["withpi_utils", "tests"]
-branch = true
-parallel = true
-omit = [
-  "src/withpi_utils/__about__.py",
-]
-
-[tool.coverage.paths]
-withpi_utils = ["src/withpi_utils", "*/withpi-utils/src/withpi_utils"]
-tests = ["tests", "*/withpi-utils/tests"]
-
-[tool.coverage.report]
-exclude_lines = [
-  "no cov",
-  "if __name__ == .__main__.:",
-  "if TYPE_CHECKING:",
-]
