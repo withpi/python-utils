@@ -1,12 +1,19 @@
 import json
 from collections import defaultdict
 
+import httpx
 import markdown  # type: ignore
 import numpy as np
 import pandas as pd
-from IPython.display import HTML, display, clear_output
+from IPython.display import HTML, clear_output, display
 from matplotlib.colors import LinearSegmentedColormap  # type: ignore
 from withpi.types import Scorer
+
+
+def load_scorer_from_web(url: str) -> Scorer:
+    """load_scorer pulls a Scorer JSON blob locally with validation."""
+    resp = httpx.get(url)
+    return Scorer.model_validate_json(resp.content)
 
 
 def display_scorer(scorer: Scorer):
