@@ -44,4 +44,12 @@ path = "src/withpi_utils/__about__.py"
 [dependency-groups]
 dev = [
     "pytest>=8.3.5",
+    "pytest-asyncio>=0.24.0",
 ]
+
+[tool.pytest.ini_options]
+markers = [
+    "integration: marks tests as being production integration tests",
+]
+addopts = "-m 'not integration'"
+asyncio_default_fixture_loop_scope = "function"

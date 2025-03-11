@@ -1,0 +1,12 @@
+{
+    "application_description": "Make a marketing post around a product I specify",
+    "batch_size": 5,
+    "exploration_mode": "BALANCED",
+    "num_inputs_to_generate": 10,
+    "num_shots": 5,
+    "seeds": [
+        "Vacuum Cleaner",
+        "Desk Lamp",
+        "Drink Coaster"
+    ]
+}

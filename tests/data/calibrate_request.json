@@ -1,0 +1,393 @@
+{
+    "scorer": {
+        "name": "SampleContract",
+        "description": "Write a children's story communicating a simple life lesson.",
+        "dimensions": [
+            {
+                "label": "Story Clarity",
+                "description": "How can we ensure that the story's message and structure are clear for children?",
+                "weight": 1.0,
+                "sub_dimensions": [
+                    {
+                        "label": "Clear Lesson",
+                        "description": "Is the life lesson clearly communicated in the story?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    },
+                    {
+                        "label": "Moral Clarity",
+                        "description": "Is the moral of the story easy for children to understand?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    },
+                    {
+                        "label": "Ending Clarity",
+                        "description": "Does the story have a clear and satisfying ending?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    }
+                ],
+                "action_dimension": null,
+                "action_on_low_score": false
+            },
+            {
+                "label": "Age Appropriateness Dimension",
+                "description": "How can we ensure that the story is suitable for the target age group?",
+                "weight": 1.0,
+                "sub_dimensions": [
+                    {
+                        "label": "Age Appropriateness",
+                        "description": "Is the language used in the story appropriate for children?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    },
+                    {
+                        "label": "Character Relatability",
+                        "description": "Are the main characters relatable to the target age group of children?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    },
+                    {
+                        "label": "Emotion Reflection",
+                        "description": "Does the story reflect emotions that children can identify with?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    }
+                ],
+                "action_dimension": null,
+                "action_on_low_score": false
+            },
+            {
+                "label": "Engagement Factors",
+                "description": "What elements can enhance the engagement of children with the story?",
+                "weight": 1.0,
+                "sub_dimensions": [
+                    {
+                        "label": "Engaging Plot",
+                        "description": "Does the story have a plot that is engaging for children?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    },
+                    {
+                        "label": "Adventure Element",
+                        "description": "Does the story contain an element of adventure or excitement that draws in children?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    },
+                    {
+                        "label": "Use of Dialogue",
+                        "description": "Is dialogue used effectively to enhance character interactions and the story's engagement?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    },
+                    {
+                        "label": "Repetitive Elements",
+                        "description": "Does the story include repetitive elements to enhance retention for children?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    }
+                ],
+                "action_dimension": null,
+                "action_on_low_score": false
+            },
+            {
+                "label": "Character Development Dimension",
+                "description": "How can we ensure that characters are well-developed and relatable for children?",
+                "weight": 1.0,
+                "sub_dimensions": [
+                    {
+                        "label": "Character Development",
+                        "description": "Are the characters in the story well-defined and relatable for children?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    },
+                    {
+                        "label": "Character Relatability",
+                        "description": "Are the main characters relatable to the target age group of children?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    }
+                ],
+                "action_dimension": null,
+                "action_on_low_score": false
+            },
+            {
+                "label": "Conflict and Resolution",
+                "description": "How can we effectively introduce and resolve conflict in children's stories?",
+                "weight": 1.0,
+                "sub_dimensions": [
+                    {
+                        "label": "Conflict Resolution",
+                        "description": "Does the story include a conflict that is resolved in a positive way?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    },
+                    {
+                        "label": "Positive Tone",
+                        "description": "Is the overall tone of the story positive and encouraging?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    }
+                ],
+                "action_dimension": null,
+                "action_on_low_score": false
+            },
+            {
+                "label": "Imagery and Illustrations",
+                "description": "How can imagery and illustrations enhance children's understanding and enjoyment of the story?",
+                "weight": 1.0,
+                "sub_dimensions": [
+                    {
+                        "label": "Imagery Use",
+                        "description": "Does the story use vivid imagery to stimulate children's imagination?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    },
+                    {
+                        "label": "Illustration Suggestions",
+                        "description": "Does the story provide clear suggestions for illustrations that would enhance the narrative?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    }
+                ],
+                "action_dimension": null,
+                "action_on_low_score": false
+            },
+            {
+                "label": "Cultural Sensitivity Dimension",
+                "description": "How can we ensure that the story is culturally sensitive and inclusive?",
+                "weight": 1.0,
+                "sub_dimensions": [
+                    {
+                        "label": "Cultural Sensitivity",
+                        "description": "Is the story culturally sensitive and inclusive?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    }
+                ],
+                "action_dimension": null,
+                "action_on_low_score": false
+            },
+            {
+                "label": "Lesson Integration Dimension",
+                "description": "How can we integrate lessons naturally into the narrative?",
+                "weight": 1.0,
+                "sub_dimensions": [
+                    {
+                        "label": "Lesson Integration",
+                        "description": "Is the life lesson integrated naturally into the story instead of being forced?",
+                        "scoring_type": "PI_SCORER",
+                        "python_code": null,
+                        "parameters": [
+                            0.2,
+                            0.4,
+                            0.6,
+                            0.8,
+                            1.0
+                        ],
+                        "weight": 1.0,
+                        "huggingface_url": null,
+                        "action_dimension": null,
+                        "action_on_low_score": false
+                    }
+                ],
+                "action_dimension": null,
+                "action_on_low_score": false
+            }
+        ]
+    },
+    "examples": [
+        {
+            "llm_input": "Tell me something different",
+            "llm_output": "The lazy dog was jumped over by the quick brown fox",
+            "rating": "Strongly Agree"
+        }
+    ]
+}
