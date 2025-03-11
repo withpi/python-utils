@@ -2,11 +2,11 @@ import json
 from collections import defaultdict
 
 import httpx
-import markdown  # type: ignore
+import markdown
 import numpy as np
 import pandas as pd
 from IPython.display import HTML, clear_output, display
-from matplotlib.colors import LinearSegmentedColormap  # type: ignore
+from matplotlib.colors import LinearSegmentedColormap
 from withpi.types import Scorer
 
 

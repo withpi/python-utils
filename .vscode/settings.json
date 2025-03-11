@@ -1,0 +1,12 @@
+{
+    "python.analysis.diagnosticMode": "workspace",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "editor.formatOnSave": true,
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+}

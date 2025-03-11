@@ -25,6 +25,11 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dependencies = [
+    "ipython>=8.12.3",
+    "markdown>=3.7",
+    "matplotlib>=3.7.5",
+    "numpy>=1.24.4",
+    "pandas>=2.0.3",
     "withpi>=1.20.0",
 ]
 
@@ -35,3 +40,8 @@ Source = "https://github.com/withpi/python-utils"
 
 [tool.hatch.version]
 path = "src/withpi_utils/__about__.py"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
