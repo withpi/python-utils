@@ -11,7 +11,7 @@ from withpi.types import ScoringSpec
 
 
 def load_scoring_spec_from_web(url: str) -> ScoringSpec:
-    """load_scoring_spec_from_web pulls a Scorer JSON blob locally with validation."""
+    """load_scoring_spec_from_web pulls a ScoringSpec JSON blob locally with validation."""
     resp = httpx.get(url)
     return ScoringSpec.model_validate_json(resp.content)
 
@@ -19,7 +19,7 @@ def load_scoring_spec_from_web(url: str) -> ScoringSpec:
 def display_scoring_spec(scoring_spec: ScoringSpec):
     """display_scoring_spec pretty-prints a scoring system in Colab using HTML"""
     html_content = "<div style='font-family: Arial, sans-serif;'>"
-    html_content += f"<h2 style='color: #202124; border-bottom: 2px solid #4285F4; padding-bottom: 8px; margin-bottom: 10px;'>Scorer: {scoring_spec.name}</h2>"
+    html_content += f"<h2 style='color: #202124; border-bottom: 2px solid #4285F4; padding-bottom: 8px; margin-bottom: 10px;'>ScoringSpec: {scoring_spec.name}</h2>"
     description = scoring_spec.description
     if description is not None:
         description = description.replace("\n", "<br>")
@@ -28,7 +28,7 @@ def display_scoring_spec(scoring_spec: ScoringSpec):
     if scoring_spec.dimensions is None:
         html_content += """
         <div style='background-color: #FFF3E0; border-left: 4px solid #FF9800; padding: 10px;'>
-            <p style='margin: 0; color: #E65100;'><strong>Note:</strong> No scoring dimensions available for this scorer.</p>
+            <p style='margin: 0; color: #E65100;'><strong>Note:</strong> No scoring dimensions available for this scoring spec.</p>
         </div>
         """
     else:
