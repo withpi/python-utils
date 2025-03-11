@@ -4,7 +4,7 @@ from .scorer_builder import (
     DimensionBuilder,
     PiSubDimension,
     PythonSubDimension,
-    ScorerBuilder,
+    ScoringSpecBuilder,
     SubdimensionType,
     SubDimensionBuilder,
 )
@@ -15,7 +15,7 @@ __all__ = [
     "DimensionBuilder",
     "PiSubDimension",
     "PythonSubDimension",
-    "ScorerBuilder",
+    "ScoringSpecBuilder",
     "SubDimensionBuilder",
     "SubdimensionType",
     "stream",

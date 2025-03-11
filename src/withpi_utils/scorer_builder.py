@@ -1,4 +1,4 @@
-"""scorer_builder provides a set of tools for inspecting and modifying Scorer objects"""
+"""scoring_spec_builder provides a set of tools for inspecting and modifying ScoringSpec objects"""
 
 import contextlib
 import inspect
@@ -10,7 +10,7 @@ from multiprocessing import Pipe, Process
 from multiprocessing.connection import Connection
 from pathlib import Path
 
-from withpi.types import Scorer, ScorerDimension, ScorerSubDimension
+from withpi.types import ScoringSpec, ScoringDimension, ScoringSubDimension
 
 
 class SubdimensionType(Enum):
@@ -20,7 +20,7 @@ class SubdimensionType(Enum):
 
 @dataclass
 class SubDimensionBuilder(ABC):
-    """SubDimensionBuilder is a leaf of a Scorer tree.
+    """SubDimensionBuilder is a leaf of a ScoringSpec tree.
 
     Instantiate one of the concrete subclasses and add them to the tree at the Dimension level with
     add_subdimension()."""
@@ -28,12 +28,12 @@ class SubDimensionBuilder(ABC):
     label: str
 
     @abstractmethod
-    def _build(self) -> ScorerSubDimension: ...
+    def _build(self) -> ScoringSubDimension: ...
 
     @classmethod
     @abstractmethod
     def _from_sub_dimension(
-        cls, sub_dimension: ScorerSubDimension
+        cls, sub_dimension: ScoringSubDimension
     ) -> "SubDimensionBuilder":
         if sub_dimension.scoring_type == "PI_SCORER":
             return PiSubDimension._from_sub_dimension(sub_dimension)
@@ -51,7 +51,9 @@ class PiSubDimension(SubDimensionBuilder):
     scaling_parameters: list[float] = field(default_factory=list)
 
     @classmethod
-    def _from_sub_dimension(cls, sub_dimension: ScorerSubDimension) -> "PiSubDimension":
+    def _from_sub_dimension(
+        cls, sub_dimension: ScoringSubDimension
+    ) -> "PiSubDimension":
         return cls(
             label=sub_dimension.label,
             weight=sub_dimension.weight if sub_dimension.weight else 1.0,
@@ -61,8 +63,8 @@ class PiSubDimension(SubDimensionBuilder):
             question=sub_dimension.description,
         )
 
-    def _build(self) -> ScorerSubDimension:
-        return ScorerSubDimension(
+    def _build(self) -> ScoringSubDimension:
+        return ScoringSubDimension(
             description=self.question,
             label=self.label,
             scoring_type="PI_SCORER",
@@ -152,7 +154,7 @@ class PythonSubDimension(SubDimensionBuilder):
 
     @classmethod
     def _from_sub_dimension(
-        cls, sub_dimension: ScorerSubDimension
+        cls, sub_dimension: ScoringSubDimension
     ) -> "PythonSubDimension":
         return cls(
             label=sub_dimension.label,
@@ -163,8 +165,8 @@ class PythonSubDimension(SubDimensionBuilder):
             python_code=sub_dimension.python_code if sub_dimension.python_code else "",
         )
 
-    def _build(self) -> ScorerSubDimension:
-        return ScorerSubDimension(
+    def _build(self) -> ScoringSubDimension:
+        return ScoringSubDimension(
             description="Python Code",
             label=self.label,
             scoring_type="PYTHON_CODE",
@@ -190,7 +192,7 @@ class PythonSubDimension(SubDimensionBuilder):
 class DimensionBuilder:
     """DimensionBuilder wraps a Dimension.
 
-    Add this to a ScorerBuilder to add a Dimension to the Scorer."""
+    Add this to a ScoringSpecBuilder to add a Dimension to the ScoringSpec."""
 
     label: str
     weight: float = 1.0
@@ -211,7 +213,7 @@ class DimensionBuilder:
         self._sub_dimensions.remove(sub_dimension)
 
     @classmethod
-    def _from_dimension(cls, dimension: ScorerDimension) -> "DimensionBuilder":
+    def _from_dimension(cls, dimension: ScoringDimension) -> "DimensionBuilder":
         self = cls(label=dimension.label)
         self.weight = dimension.weight if dimension.weight else 1.0
         self.scaling_parameters = dimension.parameters if dimension.parameters else []
@@ -222,8 +224,8 @@ class DimensionBuilder:
             )
         return self
 
-    def _build(self) -> ScorerDimension:
-        return ScorerDimension(
+    def _build(self) -> ScoringDimension:
+        return ScoringDimension(
             description="unused",
             label=self.label,
             weight=self.weight,
@@ -232,21 +234,21 @@ class DimensionBuilder:
         )
 
 
-class ScorerBuilder:
-    """ScorerBuilder provides a read-write interface to a Scorer tree.
+class ScoringSpecBuilder:
+    """ScoringSpecBuilder provides a read-write interface to a ScoringSpec tree.
 
     Instantiate with the from_x() class methods, depending on what you have,
-    call methods to modify the object, and call build() to get a new Scorer object.
+    call methods to modify the object, and call build() to get a new ScoringSpec object.
 
-    This is a more ergonomic interface for manually manipulating Scorers at the JSON level,
+    This is a more ergonomic interface for manually manipulating ScoringSpecs at the JSON level,
     with more type checking and convenience methods."""
 
     name: str
     description: str
     _dimensions: list[DimensionBuilder]
 
-    def build(self) -> Scorer:
-        return Scorer(
+    def build(self) -> ScoringSpec:
+        return ScoringSpec(
             description=self.description,
             name=self.name,
             dimensions=[g._build() for g in self._dimensions],
@@ -270,8 +272,8 @@ class ScorerBuilder:
     def remove_dimension(self, dimension: DimensionBuilder) -> None:
         self._dimensions.remove(dimension)
 
-    def print_scorer(self, file=None) -> None:
-        """print_scorer pretty-prints the wrapped Scorer."""
+    def print_scoring_spec(self, file=None) -> None:
+        """print_scoring_spec pretty-prints the wrapped ScoringSpec."""
         for dimension in self.dimensions:
             print(dimension.label, file=file)
             for sub_dimension in dimension.sub_dimensions:
@@ -281,23 +283,23 @@ class ScorerBuilder:
         self._groups = []
 
     @classmethod
-    def from_dict(cls, d: dict) -> "ScorerBuilder":
-        return cls.from_scorer(Scorer.model_validate(d))
+    def from_dict(cls, d: dict) -> "ScoringSpecBuilder":
+        return cls.from_scoring_spec(ScoringSpec.model_validate(d))
 
     @classmethod
-    def from_json(cls, json: str | bytes | bytearray) -> "ScorerBuilder":
+    def from_json(cls, json: str | bytes | bytearray) -> "ScoringSpecBuilder":
         """Create a ScoringSystemBuilder from a JSON string"""
-        return cls.from_scorer(Scorer.model_validate_json(json))
+        return cls.from_scoring_spec(ScoringSpec.model_validate_json(json))
 
     @classmethod
-    def from_scorer(cls, scorer: Scorer) -> "ScorerBuilder":
+    def from_scoring_spec(cls, scoring_spec: ScoringSpec) -> "ScoringSpecBuilder":
         self = cls()
-        self.name = scorer.name
-        self.description = scorer.description
+        self.name = scoring_spec.name
+        self.description = scoring_spec.description
         self._dimensions = []
-        if scorer.dimensions is None:
+        if scoring_spec.dimensions is None:
             return self
-        for dimension in scorer.dimensions:
+        for dimension in scoring_spec.dimensions:
             self._dimensions.append(DimensionBuilder._from_dimension(dimension))
 
         return self

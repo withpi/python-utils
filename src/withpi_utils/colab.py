@@ -7,32 +7,32 @@ import numpy as np
 import pandas as pd
 from IPython.display import HTML, clear_output, display
 from matplotlib.colors import LinearSegmentedColormap
-from withpi.types import Scorer
+from withpi.types import ScoringSpec
 
 
-def load_scorer_from_web(url: str) -> Scorer:
-    """load_scorer pulls a Scorer JSON blob locally with validation."""
+def load_scoring_spec_from_web(url: str) -> ScoringSpec:
+    """load_scoring_spec_from_web pulls a Scorer JSON blob locally with validation."""
     resp = httpx.get(url)
-    return Scorer.model_validate_json(resp.content)
+    return ScoringSpec.model_validate_json(resp.content)
 
 
-def display_scorer(scorer: Scorer):
-    """display_scorer pretty-prints a scoring system in Colab using HTML"""
+def display_scoring_spec(scoring_spec: ScoringSpec):
+    """display_scoring_spec pretty-prints a scoring system in Colab using HTML"""
     html_content = "<div style='font-family: Arial, sans-serif;'>"
-    html_content += f"<h2 style='color: #202124; border-bottom: 2px solid #4285F4; padding-bottom: 8px; margin-bottom: 10px;'>Scorer: {scorer.name}</h2>"
-    description = scorer.description
+    html_content += f"<h2 style='color: #202124; border-bottom: 2px solid #4285F4; padding-bottom: 8px; margin-bottom: 10px;'>Scorer: {scoring_spec.name}</h2>"
+    description = scoring_spec.description
     if description is not None:
         description = description.replace("\n", "<br>")
     html_content += f"<p style='margin-top: 0; margin-bottom: 20px; color: #5F6368;'>{description}</p>"
 
-    if scorer.dimensions is None:
+    if scoring_spec.dimensions is None:
         html_content += """
         <div style='background-color: #FFF3E0; border-left: 4px solid #FF9800; padding: 10px;'>
             <p style='margin: 0; color: #E65100;'><strong>Note:</strong> No scoring dimensions available for this scorer.</p>
         </div>
         """
     else:
-        for dimension in scorer.dimensions:
+        for dimension in scoring_spec.dimensions:
             # Main dimension as a header
             html_content += f"<h3 style='margin-bottom: 5px; color: #4285F4;'>{dimension.label}</h3>"
             html_content += "<ul style='margin-top: 0; padding-left: 20px;'>"

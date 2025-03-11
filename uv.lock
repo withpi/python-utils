@@ -1948,7 +1948,7 @@ wheels = [
 
 [[package]]
 name = "withpi"
-version = "1.21.0"
+version = "1.24.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio", version = "4.5.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.9'" },
@@ -1959,9 +1959,9 @@ dependencies = [
     { name = "sniffio" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f1/d9/0958e8447f20ab4ebe7c3b3d5eec0f2dd2bd4f0df7857a197c89287d2cf7/withpi-1.21.0.tar.gz", hash = "sha256:b3477190273f1fb36608b2f2a46117497ce6af9c1aaa47993c24533212134eff", size = 135282 }
+sdist = { url = "https://files.pythonhosted.org/packages/57/9b/4bff7e12ae25cd184fcb51000970658b21f61d304f31dcfba4776c32de4c/withpi-1.24.0.tar.gz", hash = "sha256:13b1ceb281dd7076194812d073a784945799e17ded29db073121e9d600137f92", size = 135688 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/95/fc/238ffdc5eb7c345e1507cabd1a9c49d8bd4e8d3643f65993e4d74e80c5db/withpi-1.21.0-py3-none-any.whl", hash = "sha256:eb499975e3ce03b68a165500a9561866e3fd5a721f806de8c45a16dbbe8df950", size = 140914 },
+    { url = "https://files.pythonhosted.org/packages/36/6f/8692313463b11a7eb4b2c08a310c617fec7e4ebd12634f48444d4ff57516/withpi-1.24.0-py3-none-any.whl", hash = "sha256:55b049700e7e9c51249be32f55f86843f0a531c88fe2e56d04627e508c0d3f49", size = 141145 },
 ]
 
 [[package]]
@@ -1998,7 +1998,7 @@ requires-dist = [
     { name = "matplotlib", specifier = ">=3.7.5" },
     { name = "numpy", specifier = ">=1.24.4" },
     { name = "pandas", specifier = ">=2.0.3" },
-    { name = "withpi", specifier = ">=1.20.0" },
+    { name = "withpi", specifier = ">=1.24.0" },
 ]
 
 [package.metadata.requires-dev]
