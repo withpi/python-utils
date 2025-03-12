@@ -372,7 +372,12 @@ def stream_data(job_id: str, method):
         response = method.retrieve(job_id=job_id)
         if response.state not in ["QUEUED", "RUNNING"]:
             clear_output(wait=True)
-            print("\n".join(response.data))
+            print(
+                "\n".join(
+                    item if isinstance(item, str) else item.model_dump_json(indent=2)
+                    for item in response.data
+                )
+            )
             return response
         with method.with_streaming_response.stream_data(
             job_id=job_id, timeout=None
