@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 
-from .scorer_builder import (
+from .scoring_spec_builder import (
     DimensionBuilder,
     PiSubDimension,
     PythonSubDimension,
