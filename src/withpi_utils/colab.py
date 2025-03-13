@@ -5,7 +5,7 @@ import httpx
 import markdown
 import numpy as np
 import pandas as pd
-from IPython.display import HTML, clear_output, display
+from IPython.display import HTML, display
 from matplotlib.colors import LinearSegmentedColormap
 from withpi.types import ScoringSpec
 
@@ -338,50 +338,3 @@ def stream_training_response(job_id: str, method, additional_columns: dict[str, 
                         additional_columns=additional_columns,
                     )
                 )
-
-
-def stream_response(job_id: str, method):
-    """stream_response streams messages from the provided method
-
-    method should be a Pi client object with `retrieve` and `stream_messages`
-    endpoints.  This is primarily for convenience."""
-
-    while True:
-        response = method.retrieve(job_id=job_id)
-        if response.state not in ["QUEUED", "RUNNING"]:
-            clear_output(wait=True)
-            print(f"Detailed Status for {job_id}")
-            print("\n".join(response.detailed_status))
-            return response
-        with method.with_streaming_response.stream_messages(
-            job_id=job_id, timeout=None
-        ) as response:
-            clear_output(wait=True)
-            print(f"Detailed Status for {job_id}")
-            for line in response.iter_lines():
-                print(line)
-
-
-def stream_data(job_id: str, method):
-    """stream_data streams messages from the provided method
-
-    method should be a Pi client object with `retrieve` and `stream_data`
-    endpoints.  This is primarily for convenience."""
-
-    while True:
-        response = method.retrieve(job_id=job_id)
-        if response.state not in ["QUEUED", "RUNNING"]:
-            clear_output(wait=True)
-            print(
-                "\n".join(
-                    item if isinstance(item, str) else item.model_dump_json(indent=2)
-                    for item in response.data
-                )
-            )
-            return response
-        with method.with_streaming_response.stream_data(
-            job_id=job_id, timeout=None
-        ) as response:
-            clear_output(wait=True)
-            for line in response.iter_lines():
-                print(line)
