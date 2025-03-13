@@ -70,15 +70,6 @@ wheels = [
 ]
 
 [[package]]
-name = "asttokens"
-version = "3.0.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/4a/e7/82da0a03e7ba5141f05cce0d302e6eed121ae055e0456ca228bf693984bc/asttokens-3.0.0.tar.gz", hash = "sha256:0dcd8baa8d62b0c1d118b399b2ddba3c4aff271d0d7a9e0d4c1681c79035bbc7", size = 61978 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/25/8a/c46dcc25341b5bce5472c718902eb3d38600a903b14fa6aeecef3f21a46f/asttokens-3.0.0-py3-none-any.whl", hash = "sha256:e3078351a059199dd5138cb1c706e6430c05eff2ff136af5eb4790f9d28932e2", size = 26918 },
-]
-
-[[package]]
 name = "backcall"
 version = "0.2.0"
 source = { registry = "https://pypi.org/simple" }
@@ -354,15 +345,6 @@ wheels = [
 ]
 
 [[package]]
-name = "executing"
-version = "2.2.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/91/50/a9d80c47ff289c611ff12e63f7c5d13942c65d68125160cefd768c73e6e4/executing-2.2.0.tar.gz", hash = "sha256:5d108c028108fe2551d1a7b2e8b713341e2cb4fc0aa7dcf966fa4327a5226755", size = 978693 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/7b/8f/c4d9bafc34ad7ad5d8dc16dd1347ee0e507a52c3adb6bfa8887e1c6a26ba/executing-2.2.0-py2.py3-none-any.whl", hash = "sha256:11387150cad388d62750327a53d3339fad4888b39a6fe233c3afbb54ecffd3aa", size = 26702 },
-]
-
-[[package]]
 name = "fonttools"
 version = "4.56.0"
 source = { registry = "https://pypi.org/simple" }
@@ -537,117 +519,26 @@ wheels = [
 
 [[package]]
 name = "ipython"
-version = "8.12.3"
-source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version < '3.9'",
-]
-dependencies = [
-    { name = "appnope", marker = "python_full_version < '3.9' and sys_platform == 'darwin'" },
-    { name = "backcall", marker = "python_full_version < '3.9'" },
-    { name = "colorama", marker = "python_full_version < '3.9' and sys_platform == 'win32'" },
-    { name = "decorator", marker = "python_full_version < '3.9'" },
-    { name = "jedi", marker = "python_full_version < '3.9'" },
-    { name = "matplotlib-inline", marker = "python_full_version < '3.9'" },
-    { name = "pexpect", marker = "python_full_version < '3.9' and sys_platform != 'win32'" },
-    { name = "pickleshare", marker = "python_full_version < '3.9'" },
-    { name = "prompt-toolkit", marker = "python_full_version < '3.9'" },
-    { name = "pygments", marker = "python_full_version < '3.9'" },
-    { name = "stack-data", marker = "python_full_version < '3.9'" },
-    { name = "traitlets", marker = "python_full_version < '3.9'" },
-    { name = "typing-extensions", marker = "python_full_version < '3.9'" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/9e/6a/44ef299b1762f5a73841e87fae8a73a8cc8aee538d6dc8c77a5afe1fd2ce/ipython-8.12.3.tar.gz", hash = "sha256:3910c4b54543c2ad73d06579aa771041b7d5707b033bd488669b4cf544e3b363", size = 5470171 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/8d/97/8fe103906cd81bc42d3b0175b5534a9f67dccae47d6451131cf8d0d70bb2/ipython-8.12.3-py3-none-any.whl", hash = "sha256:b0340d46a933d27c657b211a329d0be23793c36595acf9e6ef4164bc01a1804c", size = 798307 },
-]
-
-[[package]]
-name = "ipython"
-version = "8.18.1"
-source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version == '3.9.*'",
-]
-dependencies = [
-    { name = "colorama", marker = "python_full_version == '3.9.*' and sys_platform == 'win32'" },
-    { name = "decorator", marker = "python_full_version == '3.9.*'" },
-    { name = "exceptiongroup", marker = "python_full_version == '3.9.*'" },
-    { name = "jedi", marker = "python_full_version == '3.9.*'" },
-    { name = "matplotlib-inline", marker = "python_full_version == '3.9.*'" },
-    { name = "pexpect", marker = "python_full_version == '3.9.*' and sys_platform != 'win32'" },
-    { name = "prompt-toolkit", marker = "python_full_version == '3.9.*'" },
-    { name = "pygments", marker = "python_full_version == '3.9.*'" },
-    { name = "stack-data", marker = "python_full_version == '3.9.*'" },
-    { name = "traitlets", marker = "python_full_version == '3.9.*'" },
-    { name = "typing-extensions", marker = "python_full_version == '3.9.*'" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/b1/b9/3ba6c45a6df813c09a48bac313c22ff83efa26cbb55011218d925a46e2ad/ipython-8.18.1.tar.gz", hash = "sha256:ca6f079bb33457c66e233e4580ebfc4128855b4cf6370dddd73842a9563e8a27", size = 5486330 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/47/6b/d9fdcdef2eb6a23f391251fde8781c38d42acd82abe84d054cb74f7863b0/ipython-8.18.1-py3-none-any.whl", hash = "sha256:e8267419d72d81955ec1177f8a29aaa90ac80ad647499201119e2f05e99aa397", size = 808161 },
-]
-
-[[package]]
-name = "ipython"
-version = "8.34.0"
-source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version == '3.10.*'",
-]
-dependencies = [
-    { name = "colorama", marker = "python_full_version == '3.10.*' and sys_platform == 'win32'" },
-    { name = "decorator", marker = "python_full_version == '3.10.*'" },
-    { name = "exceptiongroup", marker = "python_full_version == '3.10.*'" },
-    { name = "jedi", marker = "python_full_version == '3.10.*'" },
-    { name = "matplotlib-inline", marker = "python_full_version == '3.10.*'" },
-    { name = "pexpect", marker = "python_full_version == '3.10.*' and sys_platform != 'emscripten' and sys_platform != 'win32'" },
-    { name = "prompt-toolkit", marker = "python_full_version == '3.10.*'" },
-    { name = "pygments", marker = "python_full_version == '3.10.*'" },
-    { name = "stack-data", marker = "python_full_version == '3.10.*'" },
-    { name = "traitlets", marker = "python_full_version == '3.10.*'" },
-    { name = "typing-extensions", marker = "python_full_version == '3.10.*'" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/13/18/1a60aa62e9d272fcd7e658a89e1c148da10e1a5d38edcbcd834b52ca7492/ipython-8.34.0.tar.gz", hash = "sha256:c31d658e754673ecc6514583e7dda8069e47136eb62458816b7d1e6625948b5a", size = 5508477 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/04/78/45615356bb973904856808183ae2a5fba1f360e9d682314d79766f4b88f2/ipython-8.34.0-py3-none-any.whl", hash = "sha256:0419883fa46e0baa182c5d50ebb8d6b49df1889fdb70750ad6d8cfe678eda6e3", size = 826731 },
-]
-
-[[package]]
-name = "ipython"
-version = "9.0.2"
-source = { registry = "https://pypi.org/simple" }
-resolution-markers = [
-    "python_full_version >= '3.12'",
-    "python_full_version == '3.11.*'",
-]
-dependencies = [
-    { name = "colorama", marker = "python_full_version >= '3.11' and sys_platform == 'win32'" },
-    { name = "decorator", marker = "python_full_version >= '3.11'" },
-    { name = "ipython-pygments-lexers", marker = "python_full_version >= '3.11'" },
-    { name = "jedi", marker = "python_full_version >= '3.11'" },
-    { name = "matplotlib-inline", marker = "python_full_version >= '3.11'" },
-    { name = "pexpect", marker = "python_full_version >= '3.11' and sys_platform != 'emscripten' and sys_platform != 'win32'" },
-    { name = "prompt-toolkit", marker = "python_full_version >= '3.11'" },
-    { name = "pygments", marker = "python_full_version >= '3.11'" },
-    { name = "stack-data", marker = "python_full_version >= '3.11'" },
-    { name = "traitlets", marker = "python_full_version >= '3.11'" },
-    { name = "typing-extensions", marker = "python_full_version == '3.11.*'" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/7d/ce/012a0f40ca58a966f87a6e894d6828e2817657cbdf522b02a5d3a87d92ce/ipython-9.0.2.tar.gz", hash = "sha256:ec7b479e3e5656bf4f58c652c120494df1820f4f28f522fb7ca09e213c2aab52", size = 4366102 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/20/3a/917cb9e72f4e1a4ea13c862533205ae1319bd664119189ee5cc9e4e95ebf/ipython-9.0.2-py3-none-any.whl", hash = "sha256:143ef3ea6fb1e1bffb4c74b114051de653ffb7737a3f7ab1670e657ca6ae8c44", size = 600524 },
-]
-
-[[package]]
-name = "ipython-pygments-lexers"
-version = "1.1.1"
+version = "7.34.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "pygments", marker = "python_full_version >= '3.11'" },
+    { name = "appnope", marker = "sys_platform == 'darwin'" },
+    { name = "backcall" },
+    { name = "colorama", marker = "sys_platform == 'win32'" },
+    { name = "decorator" },
+    { name = "jedi" },
+    { name = "matplotlib-inline" },
+    { name = "pexpect", marker = "sys_platform != 'win32'" },
+    { name = "pickleshare" },
+    { name = "prompt-toolkit" },
+    { name = "pygments" },
+    { name = "setuptools", version = "75.3.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.9'" },
+    { name = "setuptools", version = "76.0.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.9'" },
+    { name = "traitlets" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ef/4c/5dd1d8af08107f88c7f741ead7a40854b8ac24ddf9ae850afbcf698aa552/ipython_pygments_lexers-1.1.1.tar.gz", hash = "sha256:09c0138009e56b6854f9535736f4171d855c8c08a563a0dcd8022f78355c7e81", size = 8393 }
+sdist = { url = "https://files.pythonhosted.org/packages/db/6c/3fcf0b8ee46656796099ac4b7b72497af5f090da3e43fd305f2a24c73915/ipython-7.34.0.tar.gz", hash = "sha256:af3bdb46aa292bce5615b1b2ebc76c2080c5f77f54bda2ec72461317273e7cd6", size = 5158632 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d9/33/1f075bf72b0b747cb3288d011319aaf64083cf2efef8354174e3ed4540e2/ipython_pygments_lexers-1.1.1-py3-none-any.whl", hash = "sha256:a9462224a505ade19a605f71f8fa63c2048833ce50abc86768a0d81d876dc81c", size = 8074 },
+    { url = "https://files.pythonhosted.org/packages/7c/6a/1f1365f4bf9fcb349fcaa5b61edfcefa721aa13ff37c5631296b12fab8e5/ipython-7.34.0-py3-none-any.whl", hash = "sha256:c175d2440a1caff76116eb719d40538fbb316e214eda85c5515c303aacbfb23e", size = 793790 },
 ]
 
 [[package]]
@@ -1600,15 +1491,6 @@ wheels = [
 ]
 
 [[package]]
-name = "pure-eval"
-version = "0.2.3"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/cd/05/0a34433a064256a578f1783a10da6df098ceaa4a57bbeaa96a6c0352786b/pure_eval-0.2.3.tar.gz", hash = "sha256:5f4e983f40564c576c7c8635ae88db5956bb2229d7e9237d03b3c0b0190eaf42", size = 19752 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/8e/37/efad0257dc6e593a18957422533ff0f87ede7c9c6ea010a2177d738fb82f/pure_eval-0.2.3-py3-none-any.whl", hash = "sha256:1db8e35b67b3d218d818ae653e27f06c3aa420901fa7b081ca98cbedc874e0d0", size = 11842 },
-]
-
-[[package]]
 name = "pydantic"
 version = "2.10.6"
 source = { registry = "https://pypi.org/simple" }
@@ -1840,6 +1722,33 @@ wheels = [
 ]
 
 [[package]]
+name = "setuptools"
+version = "75.3.2"
+source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "python_full_version < '3.9'",
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5c/01/771ea46cce201dd42cff043a5eea929d1c030fb3d1c2ee2729d02ca7814c/setuptools-75.3.2.tar.gz", hash = "sha256:3c1383e1038b68556a382c1e8ded8887cd20141b0eb5708a6c8d277de49364f5", size = 1354489 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/15/65/3f0dba35760d902849d39d38c0a72767794b1963227b69a587f8a336d08c/setuptools-75.3.2-py3-none-any.whl", hash = "sha256:90ab613b6583fc02d5369cbca13ea26ea0e182d1df2d943ee9cbe81d4c61add9", size = 1251198 },
+]
+
+[[package]]
+name = "setuptools"
+version = "76.0.0"
+source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "python_full_version >= '3.12'",
+    "python_full_version == '3.11.*'",
+    "python_full_version == '3.10.*'",
+    "python_full_version == '3.9.*'",
+]
+sdist = { url = "https://files.pythonhosted.org/packages/32/d2/7b171caf085ba0d40d8391f54e1c75a1cda9255f542becf84575cfd8a732/setuptools-76.0.0.tar.gz", hash = "sha256:43b4ee60e10b0d0ee98ad11918e114c70701bc6051662a9a675a0496c1a158f4", size = 1349387 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/37/66/d2d7e6ad554f3a7c7297c3f8ef6e22643ad3d35ef5c63bf488bc89f32f31/setuptools-76.0.0-py3-none-any.whl", hash = "sha256:199466a166ff664970d0ee145839f5582cb9bca7a0a3a2e795b6a9cb2308e9c6", size = 1236106 },
+]
+
+[[package]]
 name = "six"
 version = "1.17.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1855,20 +1764,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/a2/87/a6771e1546d97e7e041b6ae58d80074f81b7d5121207425c964ddf5cfdbd/sniffio-1.3.1.tar.gz", hash = "sha256:f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc", size = 20372 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e9/44/75a9c9421471a6c4805dbf2356f7c181a29c1879239abab1ea2cc8f38b40/sniffio-1.3.1-py3-none-any.whl", hash = "sha256:2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2", size = 10235 },
-]
-
-[[package]]
-name = "stack-data"
-version = "0.6.3"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "asttokens" },
-    { name = "executing" },
-    { name = "pure-eval" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/28/e3/55dcc2cfbc3ca9c29519eb6884dd1415ecb53b0e934862d3559ddcb7e20b/stack_data-0.6.3.tar.gz", hash = "sha256:836a778de4fec4dcd1dcd89ed8abff8a221f58308462e1c4aa2a3cf30148f0b9", size = 44707 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/f1/7b/ce1eafaf1a76852e2ec9b22edecf1daa58175c090266e9f6c64afcd81d91/stack_data-0.6.3-py3-none-any.whl", hash = "sha256:d5558e0c25a4cb0853cddad3d77da9891a08cb85dd9f9f91b9f8cd66e511e695", size = 24521 },
 ]
 
 [[package]]
@@ -1968,10 +1863,7 @@ wheels = [
 name = "withpi-utils"
 source = { editable = "." }
 dependencies = [
-    { name = "ipython", version = "8.12.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.9'" },
-    { name = "ipython", version = "8.18.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.9.*'" },
-    { name = "ipython", version = "8.34.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.10.*'" },
-    { name = "ipython", version = "9.0.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.11'" },
+    { name = "ipython" },
     { name = "markdown" },
     { name = "matplotlib", version = "3.7.5", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.9'" },
     { name = "matplotlib", version = "3.9.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version == '3.9.*'" },
@@ -1993,7 +1885,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "ipython", specifier = ">=8.12.3" },
+    { name = "ipython", specifier = ">=7.34.0" },
     { name = "markdown", specifier = ">=3.7" },
     { name = "matplotlib", specifier = ">=3.7.5" },
     { name = "numpy", specifier = ">=1.24.4" },
