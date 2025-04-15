@@ -1,5 +1,5 @@
 {
-    "scorer": {
+    "scoring_spec": {
         "name": "SampleContract",
         "description": "Write a children's story communicating a simple life lesson.",
         "dimensions": [

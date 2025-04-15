@@ -3,11 +3,9 @@
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 import json
-
-
 from typing import Protocol, Iterator, AsyncIterator, Any
 
-from withpi._resource import AsyncAPIResource, SyncAPIResource
+from withpi._resource import AsyncAPIResource, SyncAPIResource  # type: ignore
 
 
 class StatusMessageProtocol(Protocol):
