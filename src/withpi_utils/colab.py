@@ -1,4 +1,5 @@
 import httpx
+import json
 import markdown
 import numpy as np
 from IPython.display import HTML, display
@@ -9,10 +10,28 @@ from withpi.types import Question, ScoringSystemMetrics
 def load_scoring_spec_from_web(url: str) -> list[Question]:
     """load_scoring_spec_from_web pulls a scoring spec from a URL."""
     resp = httpx.get(url)
-    parsed = resp.json()
+    return load_scoring_spec(resp.content)
+
+
+def load_scoring_spec(
+    scoring_spec: str | bytes | bytearray | list[dict],
+) -> list[Question]:
+    if not isinstance(scoring_spec, dict):
+        parsed = json.loads(scoring_spec)  # type: ignore
+    else:
+        parsed = scoring_spec
     if not isinstance(parsed, list):
         raise ValueError("Expected a list of questions")
     return [Question.model_validate(q) for q in parsed]
+
+
+def dump_scoring_spec(scoring_spec: list[Question]) -> str:
+    """dump_scoring_spec prints a scoring spec in JSON form, returning it to be saved in a file"""
+    # Convert the list of Question objects to a list of dictionaries
+    scoring_spec_dicts = [question.model_dump() for question in scoring_spec]
+
+    # Convert the list of dictionaries to a JSON string
+    return json.dumps(scoring_spec_dicts, indent=2)
 
 
 def display_scoring_spec(scoring_spec: list[Question]) -> None:
@@ -29,10 +48,13 @@ def display_scoring_spec(scoring_spec: list[Question]) -> None:
     else:
         html_content += "<ul style='margin-top: 0; padding-left: 20px;'>"
         for question in scoring_spec:
-            # Sub-dimensions as list items with the scoring type in bold
-            html_content += (
-                f"<li><strong>{question.scoring_type}:</strong> {question.question}"
-            )
+            # Sub-dimensions as list items with the scoring type in bold (if not PI SCORER)
+            if question.scoring_type is None or question.scoring_type == "PI_SCORER":
+                html_content += f"<li>{question.question}"
+            else:
+                html_content += (
+                    f"<li><strong>{question.scoring_type}:</strong> {question.question}"
+                )
 
             # Check if python_code exists and display it in a code block
             if question.scoring_type == "PYTHON_CODE" and question.python_code:

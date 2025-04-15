@@ -1,0 +1,22 @@
+[
+  {
+    "question": "Is it good?",
+    "custom_model_id": null,
+    "label": null,
+    "parameters": null,
+    "python_code": null,
+    "scoring_type": null,
+    "tag": null,
+    "weight": null
+  },
+  {
+    "question": "Python Code",
+    "custom_model_id": null,
+    "label": null,
+    "parameters": null,
+    "python_code": "score = lambda response_text, input_text, **kwargs: { 'score': 1.0, 'explanation': 'good' }",
+    "scoring_type": "PYTHON_CODE",
+    "tag": null,
+    "weight": null
+  }
+]
