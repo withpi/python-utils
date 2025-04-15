@@ -18,7 +18,7 @@ def load_scoring_spec_from_web(url: str) -> list[Question]:
 def display_scoring_spec(scoring_spec: list[Question]) -> None:
     """display_scoring_spec pretty-prints a scoring system in Colab using HTML"""
     html_content = "<div style='font-family: Arial, sans-serif;'>"
-    html_content += "<h2 style='color: #202124; border-bottom: 2px solid #4285F4; padding-bottom: 8px; margin-bottom: 10px;'>ScoringSpec</h2>"
+    html_content += "<h2 style='color: #202124; border-bottom: 2px solid #4285F4; padding-bottom: 8px; margin-bottom: 10px;'>Scoring Spec</h2>"
 
     if len(scoring_spec) == 0:
         html_content += """
@@ -126,10 +126,9 @@ def print_scores(pi_scores: ScoringSystemMetrics) -> str:
     else:
         for question_name, question_score in pi_scores.question_scores.items():
             score_html += (
-                f"<tr><td><b>{question_name}</b></td><td></td><td style='color: {score_to_color(question_score)}'>{round(question_score, 3)}</td></tr>"
+                f"<tr><td><b>{question_name}</b></td><td style='color: {score_to_color(question_score)}'>{round(question_score, 3)}</td><td></td></tr>"
                 + "\n"
             )
-    score_html += "<tr></tr>" + "\n"
     score_html += (
         f"<tr><td>Total score</td><td></td><td style='color: {score_to_color(pi_scores.total_score)}'><b>{round(pi_scores.total_score, 3)}</b></td></tr>"
         + "\n"
